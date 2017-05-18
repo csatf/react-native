@@ -255,6 +255,9 @@ class AlertIOS {
       cb && cb(value);
     });
   }
+  static dismiss() {
+    return RCTAlertManager.dismiss();
+  }
 }
 
 module.exports = AlertIOS;
