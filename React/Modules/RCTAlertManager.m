@@ -48,6 +48,10 @@ RCT_EXPORT_MODULE()
   }
 }
 
+RCT_EXPORT_METHOD(dismiss) {
+  [self invalidate];
+}
+
 /**
  * @param {NSDictionary} args Dictionary of the form
  *
@@ -113,7 +117,6 @@ RCT_EXPORT_METHOD(alertWithArgs:(NSDictionary *)args
     }
     case RCTAlertViewStyleSecureTextInput: {
       [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = RCTUIKitLocalizedString(@"Password");
         textField.secureTextEntry = YES;
         textField.text = defaultValue;
         textField.keyboardType = keyboardType;
